@@ -1,0 +1,7 @@
+# Hungarian localization file for Sparky Server. (Translated by Nemomen)
+# Copyright 2019 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
+# Under the GNU GPL v2
+# Last update 2019/01/28 by pavroo
+LOCAL1="Root kell legyen!"
+LOCAL2="Kilépés most"
+LOCAL3="Eltávolítja a Sparky Server utólagosan telepített parancs fáljait?"

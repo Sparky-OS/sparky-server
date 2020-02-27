@@ -1,0 +1,7 @@
+# File di localizzazione in italiano per Sparky Server.
+# Copyright 2019 PaweÅ‚ "pavroo" Pijanowski <pavroo@onet.eu>
+# Rilascciato sotto licenza GNU GPL v2
+# Ultimo aggiornamento 2019/02/22 by carlo "malato" <abbassolafrangetta@gmail.com>
+LOCAL1="Devi essere root"
+LOCAL2="Sto uscendo adesso"
+LOCAL3="Intendi rimuovere gli script post installazione di Sparky Server?"

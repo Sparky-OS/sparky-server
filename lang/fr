@@ -1,0 +1,8 @@
+﻿# Fichier de localisation française de Sparky Server.
+# Copyright 2019 hiver <hiver@club-internet.fr> 2019/03/03
+# Sous licence GNU GPL v2
+# Dernière mise à jour 2019/03/03
+#
+LOCAL1="Vous devez être en mode administrateur..."
+LOCAL2="Sortie à présent..."
+LOCAL3="Suppression des scripts de post-installation de Sparky Server?"

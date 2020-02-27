@@ -1,0 +1,8 @@
+# Arquivo de Tradução Português-Brasil para o Sparky Server.
+# Copyright 2019 Paweł‚ "pavroo" Pijanowski <pavroo@onet.eu>
+# Sob a GNU GPL v2
+# Tradução feita por Elton <eltonfabricio10@gmail.com>
+# Last update 2019/02/02 by pavroo
+LOCAL1="Deve ser root"
+LOCAL2="Saindo agora"
+LOCAL3="Remover os scripts de pós-instalação do Sparky Server?"

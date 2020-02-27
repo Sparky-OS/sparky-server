@@ -1,0 +1,9 @@
+# German localization file for Sparky Server.
+# Copyright 2019 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
+# Under the GNU GPL v2
+# Last update 2019/01/28 by pavroo
+# draft translate -michael<thenumbersguy@o2online.de>2019/11
+LOCAL1="Muss root sein"
+LOCAL2="Beende..."
+LOCAL3="Die Sparky Server post-install scripts entfernen?"
+

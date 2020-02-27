@@ -1,0 +1,7 @@
+# Файл русской локализации для Sparky Server.
+# Copyright 2019 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
+# Под лицензией GNU GPL v2
+# Last update 2019/01/28 by pavroo
+LOCAL1="Должен быть root"
+LOCAL2="Выйти"
+LOCAL3="Удалить скрипты Sparky Server после установки?"

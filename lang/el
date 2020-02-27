@@ -1,0 +1,7 @@
+# Greek localization file for Sparky Server.
+# Copyright 2019 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
+# Under the GNU GPL v2
+# Last update 2019/11/06 by jidan
+LOCAL1="Απαιτούνται δικαιώματα διαχειριστή (root)"
+LOCAL2="Πραγματοποιείται έξοδος τώρα"
+LOCAL3="Αφαίρεση των scripts του Sparky Server που εκτελούνται μετά την εγκατάσταση;"
