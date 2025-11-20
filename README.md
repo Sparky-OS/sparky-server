@@ -1,37 +1,59 @@
-Sparky Server
+# Sparky Server Post-Install
 
-This provides an post-install script of all Sparky Server editions.
+This repository provides a set of shell scripts to automate the post-installation
+setup of all Sparky Server editions.
 
-Copyright (C) 2019 Paweł Pijanowski
+## Description
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+The `sparky-server` script simplifies the setup of a Sparky Server by launching
+an installer that guides the user through the configuration process. The script
+is localized and supports multiple languages.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+## File Structure
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- `bin/sparky-server`: The main executable script that launches the installer.
+- `lang/`: A directory containing localization files for the script.
+- `install.sh`: A script to install or uninstall the `sparky-server` tool.
+- `README.md`: This file.
 
-Dependencies:
----------------
-apt
-bash
-coreutils
-dialog
-grep
-sparky-ad-server
+## Dependencies
 
-Install:
--------------
-su (or sudo) 
-./install.sh
+- `apt`
+- `bash`
+- `coreutils`
+- `dialog`
+- `grep`
+- `sparky-ad-server`
 
-Uninstall:
--------------
-su (or sudo)
-./install.sh uninstall
+## Installation
+
+To install the `sparky-server` script, run the following commands:
+
+```bash
+sudo ./install.sh
+```
+
+This will copy the necessary files to `/usr/bin` and `/usr/share/sparky`.
+
+## Usage
+
+After installation, you can run the script by typing:
+
+```bash
+sparky-server
+```
+
+The script will guide you through the post-installation setup process.
+
+## Uninstallation
+
+To uninstall the `sparky-server` script, run:
+
+```bash
+sudo ./install.sh uninstall
+```
+
+## License
+
+This program is free software and is distributed under the GNU General Public
+License v3. See the `LICENSE` file for more details.

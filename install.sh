@@ -1,26 +1,32 @@
 #!/bin/sh
 #
-#  This program is free software; you can redistribute it and/or
-#  modify it under the terms of the GNU General Public License as
-#  published by the Free Software Foundation; either version 2 of the
-#  License, or (at your option) any later version.
+# install.sh
 #
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
+# This script handles the installation and uninstallation of the Sparky Server
+# post-install scripts.
 #
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software Foundation,
-#  Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+# Copyright (C) 2019 Paweł Pijanowski "pavroo" <pavroo@onet.eu>
+# License: GNU GPL2
+#
 
+# --- Logic ---
+# Check if the first command-line argument is "uninstall".
 if [ "$1" = "uninstall" ]; then
-   	rm -f /usr/bin/sparky-server
-	rm -rf /usr/share/sparky/sparky-server
+    # --- Uninstallation ---
+    # If the argument is "uninstall", remove the script and its data directory.
+    rm -f /usr/bin/sparky-server
+    rm -rf /usr/share/sparky/sparky-server
 else
-	cp bin/sparky-server /usr/bin/
-	if [ ! -d /usr/share/sparky/sparky-server ]; then
-		mkdir -p /usr/share/sparky/sparky-server
-	fi
-	cp lang/* /usr/share/sparky/sparky-server/
+    # --- Installation ---
+    # If no argument is provided, proceed with installation.
+    # Copy the main script to the /usr/bin directory.
+    cp bin/sparky-server /usr/bin/
+
+    # Create the data directory if it doesn't already exist.
+    if [ ! -d /usr/share/sparky/sparky-server ]; then
+        mkdir -p /usr/share/sparky/sparky-server
+    fi
+
+    # Copy the localization files to the data directory.
+    cp lang/* /usr/share/sparky/sparky-server/
 fi
