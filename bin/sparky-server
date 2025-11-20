@@ -1,61 +1,78 @@
 #!/bin/bash
 
-# sparky-server script lets you install and set up the server edition on the top of sparky installation
-# Copyright Paweł Pijanowski "pavroo" <pavroo@onet.eu> 2019
-# Under the GNU GPL3 License
 #
-# iso pre-installed deps: base-files, iputils-ping, linux-headers-amd64|linux-headers-686-pae, linux-image-amd64|linux-image-686-pae, mgetty, net-tools, openssh-server, postfix, sparky-apt-sb, sparky-server
+# sparky-server
 #
-# server iso name with a suffix: server or sbserver
-# client iso name with a suffix: client or client-light
+# This script automates the post-installation setup for Sparky Server editions.
+# It checks for root privileges, loads the appropriate localization file, and
+# then launches the Sparky Server installer.
 #
-# Last update 2019/12/13 by pavroo
+# Copyright (C) 2019 Paweł Pijanowski "pavroo" <pavroo@onet.eu>
+# License: GNU GPL3
+#
+# Last updated: 2019/12/13 by pavroo
+#
 
-# get default's locale file
+# --- Localization ---
+# Set the directory for localization files.
 DEFLOCDIR="/usr/share/sparky/sparky-server"
-if [ "`cat /etc/default/locale | grep de`" != "" ]; then
-. $DEFLOCDIR/de
-elif [ "`cat /etc/default/locale | grep el`" != "" ]; then
-. $DEFLOCDIR/el
-elif [ "`cat /etc/default/locale | grep fr`" != "" ]; then
-. $DEFLOCDIR/fr
-elif [ "`cat /etc/default/locale | grep hu`" != "" ]; then
-. $DEFLOCDIR/hu
-elif [ "`cat /etc/default/locale | grep it`" != "" ]; then
-. $DEFLOCDIR/it
-elif [ "`cat /etc/default/locale | grep pl`" != "" ]; then
-. $DEFLOCDIR/pl
-elif [ "`cat /etc/default/locale | grep pt_BR`" != "" ]; then
-. $DEFLOCDIR/pt_BR
-elif [ "`cat /etc/default/locale | grep ru`" != "" ]; then
-. $DEFLOCDIR/ru
+
+# Detect the system's default locale and load the corresponding language file.
+# Falls back to English if the locale is not supported.
+if [ -f /etc/default/locale ]; then
+    if grep -q "de" /etc/default/locale; then
+        . "$DEFLOCDIR/de"
+    elif grep -q "el" /etc/default/locale; then
+        . "$DEFLOCDIR/el"
+    elif grep -q "fr" /etc/default/locale; then
+        . "$DEFLOCDIR/fr"
+    elif grep -q "hu" /etc/default/locale; then
+        . "$DEFLOCDIR/hu"
+    elif grep -q "it" /etc/default/locale; then
+        . "$DEFLOCDIR/it"
+    elif grep -q "pl" /etc/default/locale; then
+        . "$DEFLOCDIR/pl"
+    elif grep -q "pt_BR" /etc/default/locale; then
+        . "$DEFLOCDIR/pt_BR"
+    elif grep -q "ru" /etc/default/locale; then
+        . "$DEFLOCDIR/ru"
+    else
+        . "$DEFLOCDIR/en"
+    fi
 else
-. $DEFLOCDIR/en
+    # Default to English if the locale file is not found.
+    . "$DEFLOCDIR/en"
 fi
 
-# set options
-DIALOG=`which dialog`
+# --- Configuration ---
+# Set options for the dialog utility.
+DIALOG=$(which dialog)
 HEIGHT="17"
 WIDTH="75"
-TITLE="--title "
-YESNO="--yesno "
+TITLE="--title"
+YESNO="--yesno"
 TITLETEXT="Sparky Server Installer"
-TESTROOT=`whoami`
 
-if [ "$TESTROOT" != "root" ]; then
-	echo "$LOCAL1 ... $LOCAL2 ..."
-	exit 1
+# --- Execution ---
+# Check if the script is running as root.
+if [ "$(whoami)" != "root" ]; then
+    echo "$LOCAL1 ... $LOCAL2 ..."
+    exit 1
 else
-	/usr/bin/sparky-ad-server
-	# remove server post-install scripts
-	$DIALOG $TITLE"$TITLETEXT" $YESNO "$LOCAL3" $HEIGHT $WIDTH
-	if [ "$?" = "0" ]; then
-		apt-get purge sparky-server sparky-ad-server -y
-		exit 0
-	else
-		echo "$LOCAL2 ..."
-		exit 1
-	fi
+    # Launch the Sparky ad-server setup.
+    /usr/bin/sparky-ad-server
+
+    # Ask the user if they want to remove the post-install scripts.
+    $DIALOG $TITLE "$TITLETEXT" $YESNO "$LOCAL3" $HEIGHT $WIDTH
+
+    # If the user confirms, purge the server scripts.
+    if [ "$?" = "0" ]; then
+        apt-get purge sparky-server sparky-ad-server -y
+        exit 0
+    else
+        echo "$LOCAL2 ..."
+        exit 1
+    fi
 fi
 
 exit 0
