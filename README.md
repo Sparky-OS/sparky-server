@@ -1,5 +1,7 @@
 # Sparky Server Post-Install
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23309052.svg)](https://doi.org/10.5281/zenodo.23309052)
+
 This repository provides a set of shell scripts to automate the post-installation
 setup of all Sparky Server editions.
 
