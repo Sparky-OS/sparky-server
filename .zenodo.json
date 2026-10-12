@@ -1,0 +1,35 @@
+{
+  "title": "sparky-server: post-install configuration of the small-business server",
+  "description": "The post-install configuration dialog of the SparkyLinux small-business server edition.",
+  "creators": [
+    {
+      "name": "Ramos, Daniel Campos",
+      "orcid": "0009-0001-4546-8673"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Pijanowski, Paweł",
+      "affiliation": "SparkyLinux",
+      "type": "ProjectLeader"
+    }
+  ],
+  "license": "gpl-3.0-or-later",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "SparkyLinux",
+    "Debian",
+    "small-business server",
+    "Bash",
+    "Samba",
+    "server"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://sparkylinux.org/",
+      "relation": "isPartOf",
+      "scheme": "url"
+    }
+  ]
+}

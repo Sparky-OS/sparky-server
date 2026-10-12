@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "sparky-server: post-install configuration of the small-business server"
+abstract: "The post-install configuration dialog of the SparkyLinux small-business server edition."
+authors:
+  - family-names: "Ramos"
+    given-names: "Daniel Campos"
+    orcid: "https://orcid.org/0009-0001-4546-8673"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/Sparky-OS/sparky-server"
+keywords:
+  - "SparkyLinux"
+  - "Debian"
+  - "small-business server"
+  - "Bash"
+  - "Samba"
+  - "server"
